@@ -1,0 +1,43 @@
+parted -s /dev/sda mktable msdos
+parted -s /dev/sda mkpart primary 0% 100%
+
+mkfs.ext3 /dev/sda1 
+mount /dev/sda1 /mnt
+
+mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.orig
+#rankmirrors -n 6 /etc/pacman.d/mirrorlist.orig > /etc/pacman.d/mirrorlist
+echo "Server = http://archlinux.mirror.dkm.cz/pub/archlinux/$repo/os/$arch" >/etc/pacman.d/mirrorlist
+echo "Server = http://mirror.vpsfree.cz/archlinux/$repo/os/$arch" >>/etc/pacman.d/mirrorlist
+pacman -Syy
+pacstrap /mnt base base-devel
+
+arch-chroot /mnt pacman -S syslinux --noconfirm
+arch-chroot /mnt pacman -S openssh --noconfirm
+arch-chroot /mnt pacman -S vim --noconfirm
+
+cp /etc/pacman.d/mirrorlist* /mnt/etc/pacman.d 
+
+genfstab -p /mnt >>/mnt/etc/fstab
+
+arch-chroot /mnt /bin/bash <<EOF
+
+echo "tmp1" >/etc/hostname
+ln -s /usr/share/zoneinfo/CET /etc/localtime
+
+locale >/etc/locale.conf
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+echo "en_US ISO-8859-1" >> /etc/locale.gen
+locale-gen
+
+mkinitcpio -p linux
+systemctl enable sshd.service
+
+syslinux-install_update -i -a -m
+
+sed 's/root=.*/root=\/dev\/sda1 rw/' </boot/syslinux/syslinux.cfg > /boot/syslinux.cfg.new
+mv /boot/syslinux.cfg.new /boot/syslinux/syslinux.cfg
+
+echo root:root | chpasswd
+
+EOF
+umount /mnt
