@@ -3,6 +3,7 @@ qemu-system-x86_64 -enable-kvm -m 2G  -cdrom archlinux-2014.09.03-dual.iso image
 qemu-system-x86_64 -enable-kvm -m 2G  -cdrom archlinux-2014.09.03-dual.iso image -net nic -net user,hostfwd=tcp::88-:22
 
 
+qemu-system-x86_64 -enable-kvm -m 2G  -cdrom archlinux-2014.09.03-dual.iso image -display curses
 
 
 [root@s1 virt]# qemu-img create -b image-arch1 -f qcow2 image-arch-overlay1
