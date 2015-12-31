@@ -1,6 +1,8 @@
 qemu-img create -f qcow2 image 8G
 qemu-system-x86_64 -enable-kvm -m 2G  -cdrom archlinux-2014.09.03-dual.iso image 
 qemu-system-x86_64 -enable-kvm -m 2G  -cdrom archlinux-2014.09.03-dual.iso image -net nic -net user,hostfwd=tcp::88-:22
+qemu-system-x86_64 -enable-kvm -m 2G -net nic -net bridge,br=b0 -cdrom archlinux-2015.12.01-dual.iso image
+
 
 
 qemu-system-x86_64 -enable-kvm -m 2G  -cdrom archlinux-2014.09.03-dual.iso image -display curses
