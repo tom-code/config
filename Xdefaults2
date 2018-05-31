@@ -1,0 +1,78 @@
+
+! Normal
+! color0    black
+! color1    red
+! color2    green
+! color3    yellow
+! color4    blue
+! color5    purple
+! color6    cyan
+! color7    white
+urxvt*background: black
+urxvt*foreground: wheat
+rxvt*background: black
+rxvt*foreground: wheat
+rxvt*color0:    #000000
+rxvt*color1:    #e9897c
+rxvt*color2:    #b6e77d
+rxvt*color3:    #ecebbe
+rxvt*color4:    #a9cdeb
+rxvt*color5:    #ea96eb
+rxvt*color6:    #898aec
+xxrxvt*color6:    #c9caec
+rxvt*color7:    #f2f2f2
+! 
+URxvt.color0:    #000000
+URxvt.color1:    #e9897c
+URxvt.color2:    #f6e77d
+URxvt.color3:    #ecebbe
+URxvt.color4:    #a9cdeb
+URxvt.color5:    #ea96eb
+URurxvt*color6:    #898aec
+zzurxvt*color6:    #c9caec
+zzurxvt*color6:    #c9caec
+URxvt.color7:    #f2f2f2
+! Light
+! color8    black
+! color9    red
+! color10    green
+! color11    yellow
+! color12    blue
+! color13    purple
+! color14    cyan
+! color15    white
+
+rxvt*color8:    #747474
+rxvt*color9:    #f99286
+rxvt*color10:    #c3f786
+rxvt*color11:    #fcfbcc
+rxvt*color12:    #b6defb
+rxvt*color13:    #fba1fb
+rxvt*color14:    #d7d9fc
+rxvt*color15:    #e2e2e2
+
+URxvt.color8:    #747474
+URxvt.color9:    #f99286
+URxvt.color10:    #c3f786
+URxvt.color11:    #fcfbcc
+URxvt.color12:    #b6defb
+URxvt.color13:    #fba1fb
+URxvt.color14:    #d7d9fc
+URxvt.color15:    #e2e2e2
+
+
+rxvt.font: fixed
+rxvt.boldFont: fixed
+
+
+
+urxvt.font: fixed
+urxvt.boldFont: fixed
+rxvt.scrollBar: false
+
+
+!#urxvt*colorBD: #ffffff
+!#urxvt*colorIT: #ffffff
+!#urxvt*colorUL: #ffffff
+!#urxvt*underlineColor: #ffffff
+!#urxvt*highlightTextColor: #ffffff
